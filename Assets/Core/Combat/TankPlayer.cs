@@ -4,10 +4,14 @@ using Unity.Cinemachine;
 
 public class TankPlayer : NetworkBehaviour
 {
-    [Header("References")] [SerializeField]
+    [Header("References")]
+    [SerializeField]
     private CinemachineCamera virtualCamera;
 
-    [Header("Settings")] [SerializeField] private int ownerPriority = 15;
+    [field: SerializeField] public Health Health { get; private set; }
+    [field: SerializeField] public CoinWallet Wallet { get; private set; }
+
+    [Header("Settings")][SerializeField] private int ownerPriority = 15;
 
     public override void OnNetworkSpawn()
     {
